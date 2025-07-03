@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frekuensi Gelombang Otak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #17ceee, #010c0c);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #17ceee, #010c0c);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+        th {
+            background-color: #000000;
+            color: rgb(253, 253, 253);
+        }
+        td button {
+            padding: 8px 15px;
+            background-color: #fa070b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        td button:hover {
+            background-color: #000000;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .navbar {
+      background: #2c3e50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+
+     <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html">Kembali Ke Dashboard</a>
+    </div>
+  </div>
+
+    <div class="container">
+        <h1>Data Frekuensi Gelombang Otak - Chairul Iman</h1>
+       <br><br>
+       <button> <a href="index.html">Kembali</a></button>
+       <button> <a href="aplikasifre.html">Aplikasi</a></button>
+       <br><br>
+
+        <!-- Tabel Alpha -->
+        <h2>Alpha (8 - 12 Hz)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8 Hz</td>
+                    <td>Gelombang yang terjadi saat kondisi rileks, meditasi, dan dalam keadaan santai.</td>
+                    <td><button onclick="playFrequency(8, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>9 Hz</td>
+                    <td>Dikenal meningkatkan perasaan tenang dan fokus dalam aktivitas santai.</td>
+                    <td><button onclick="playFrequency(9, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>10 Hz</td>
+                    <td>Frekuensi utama dalam gelombang Alpha yang digunakan dalam terapi relaksasi.</td>
+                    <td><button onclick="playFrequency(10, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>11 Hz</td>
+                    <td>Frekuensi ini membantu mengurangi kecemasan dan mendukung ketenangan pikiran.</td>
+                    <td><button onclick="playFrequency(11, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>12 Hz</td>
+                    <td>Gelombang yang membantu dalam keadaan relaksasi lebih dalam dan fokus mental.</td>
+                    <td><button onclick="playFrequency(12, 2)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabel Delta -->
+        <h2>Delta (0.5 - 4 Hz)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0.5 Hz</td>
+                    <td>Terjadi saat tidur sangat dalam dan tidur lelap.</td>
+                    <td><button onclick="playFrequency(0.5, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>1 Hz</td>
+                    <td>Gelombang tidur dalam yang sangat lambat, memberikan pemulihan tubuh maksimal.</td>
+                    <td><button onclick="playFrequency(1, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>2 Hz</td>
+                    <td>Gelombang tidur yang mendalam dan berhubungan dengan regenerasi tubuh.</td>
+                    <td><button onclick="playFrequency(2, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>3 Hz</td>
+                    <td>Gelombang tidur dengan pemulihan fisik dan mental yang sangat kuat.</td>
+                    <td><button onclick="playFrequency(3, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>4 Hz</td>
+                    <td>Frekuensi dalam tidur yang berhubungan dengan pemulihan mental dan tubuh.</td>
+                    <td><button onclick="playFrequency(4, 2)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabel Gamma -->
+        <h2>Gamma (30 - 100 Hz)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>30 Hz</td>
+                    <td>Gelombang yang terkait dengan konsentrasi dan pemrosesan informasi.</td>
+                    <td><button onclick="playFrequency(30, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>40 Hz</td>
+                    <td>Frekuensi untuk meningkatkan kemampuan fokus dan pemrosesan informasi.</td>
+                    <td><button onclick="playFrequency(40, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>50 Hz</td>
+                    <td>Gelombang yang berhubungan dengan kecerdasan, berpikir cepat, dan kreativitas.</td>
+                    <td><button onclick="playFrequency(50, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>60 Hz</td>
+                    <td>Dikenal meningkatkan kewaspadaan mental dan fokus yang tajam.</td>
+                    <td><button onclick="playFrequency(60, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>70 Hz</td>
+                    <td>Frekuensi tinggi yang terkait dengan aktivitas mental intens.</td>
+                    <td><button onclick="playFrequency(70, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>80 Hz</td>
+                    <td>Terhubung dengan pemrosesan informasi tingkat tinggi dan kreativitas.</td>
+                    <td><button onclick="playFrequency(80, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>90 Hz</td>
+                    <td>Frekuensi yang membantu meningkatkan kapasitas mental dan daya ingat.</td>
+                    <td><button onclick="playFrequency(90, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>100 Hz</td>
+                    <td>Gelombang tinggi yang digunakan dalam terapi stimulasi mental dan memori.</td>
+                    <td><button onclick="playFrequency(100, 2)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabel Beta -->
+        <h2>Beta (13 - 30 Hz)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>13 Hz</td>
+                    <td>Gelombang yang berhubungan dengan kecemasan ringan dan kewaspadaan.</td>
+                    <td><button onclick="playFrequency(13, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>15 Hz</td>
+                    <td>Meningkatkan fokus dan konsentrasi pada tugas mental yang menantang.</td>
+                    <td><button onclick="playFrequency(15, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>20 Hz</td>
+                    <td>Gelombang yang berhubungan dengan aktivitas mental yang lebih intens.</td>
+                    <td><button onclick="playFrequency(20, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>25 Hz</td>
+                    <td>Terhubung dengan pemikiran rasional dan kesadaran mental tinggi.</td>
+                    <td><button onclick="playFrequency(25, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>30 Hz</td>
+                    <td>Gelombang untuk memicu kewaspadaan dan meningkatkan kemampuan pemecahan masalah.</td>
+                    <td><button onclick="playFrequency(30, 2)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabel Theta -->
+        <h2>Theta (4 - 8 Hz)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4 Hz</td>
+                    <td>Frekuensi yang terjadi selama tahap tidur ringan atau relaksasi mendalam.</td>
+                    <td><button onclick="playFrequency(4, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>5 Hz</td>
+                    <td>Frekuensi ini membantu relaksasi mental dan mendalamkan meditasi.</td>
+                    <td><button onclick="playFrequency(5, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>6 Hz</td>
+                    <td>Sering terhubung dengan kesadaran yang lebih dalam dan relaksasi mental yang dalam.</td>
+                    <td><button onclick="playFrequency(6, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>7 Hz</td>
+                    <td>Gelombang ini terhubung dengan pemulihan emosional dan meditatif yang mendalam.</td>
+                    <td><button onclick="playFrequency(7, 2)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>8 Hz</td>
+                    <td>Gelombang yang berhubungan dengan keseimbangan emosional dan spiritual.</td>
+                    <td><button onclick="playFrequency(8, 2)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Chakra -->
+        <h2>Frekuensi Chakra</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>174 Hz</td>
+                    <td>Menenangkan rasa sakit fisik dan emosional.</td>
+                    <td><button onclick="playFrequency(174, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>285 Hz</td>
+                    <td>Meningkatkan energi penyembuhan tubuh dan jaringan.</td>
+                    <td><button onclick="playFrequency(285, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>396 Hz</td>
+                    <td>Membersihkan rasa takut dan energi negatif.</td>
+                    <td><button onclick="playFrequency(396, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>417 Hz</td>
+                    <td>Frekuensi perubahan dan pemulihan emosi.</td>
+                    <td><button onclick="playFrequency(417, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>528 Hz</td>
+                    <td>Dikenal sebagai frekuensi cinta, harmoni, dan penyembuhan DNA.</td>
+                    <td><button onclick="playFrequency(528, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>639 Hz</td>
+                    <td>Meningkatkan hubungan harmonis dan pemahaman.</td>
+                    <td><button onclick="playFrequency(639, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>741 Hz</td>
+                    <td>Meningkatkan kesadaran dan kemampuan mengekspresikan diri.</td>
+                    <td><button onclick="playFrequency(741, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>852 Hz</td>
+                    <td>Memunculkan intuisi dan kebijaksanaan spiritual.</td>
+                    <td><button onclick="playFrequency(852, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>963 Hz</td>
+                    <td>Frekuensi untuk kesadaran tertinggi dan koneksi spiritual.</td>
+                    <td><button onclick="playFrequency(963, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Tidur Nyenyak -->
+        <h2>Frekuensi Tidur Nyenyak</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0.5 Hz</td>
+                    <td>Meningkatkan tidur nyenyak dan penyembuhan tubuh.</td>
+                    <td><button onclick="playFrequency(0.5, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>1 Hz</td>
+                    <td>Mempercepat relaksasi dan regenerasi tubuh saat tidur.</td>
+                    <td><button onclick="playFrequency(1, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>3 Hz</td>
+                    <td>Gelombang delta untuk tidur lelap yang berkualitas.</td>
+                    <td><button onclick="playFrequency(3, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Healing -->
+        <h2>Frekuensi Healing</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>111 Hz</td>
+                    <td>Memperkuat konsentrasi dan mediasi mendalam.</td>
+                    <td><button onclick="playFrequency(111, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>222 Hz</td>
+                    <td>Harmoni untuk keseimbangan emosional.</td>
+                    <td><button onclick="playFrequency(222, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>333 Hz</td>
+                    <td>Penyembuhan spiritual dan fisik tubuh.</td>
+                    <td><button onclick="playFrequency(333, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>444 Hz</td>
+                    <td>Energi penyembuhan universal.</td>
+                    <td><button onclick="playFrequency(444, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Melodi -->
+        <h2>Frekuensi Melodi</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>256 Hz</td>
+                    <td>Frekuensi standar musik klasik, dikenal memberikan ketenangan.</td>
+                    <td><button onclick="playFrequency(256, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>432 Hz</td>
+                    <td>Frekuensi harmoni alam, memberikan rasa damai dan rileks.</td>
+                    <td><button onclick="playFrequency(432, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>528 Hz</td>
+                    <td>Frekuensi cinta universal, membantu menyelaraskan energi tubuh.</td>
+                    <td><button onclick="playFrequency(528, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Isochronic -->
+        <h2>Frekuensi Isochronic</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>14 Hz</td>
+                    <td>Meningkatkan konsentrasi dan fokus saat belajar.</td>
+                    <td><button onclick="playFrequency(14, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>18 Hz</td>
+                    <td>Frekuensi untuk meningkatkan kewaspadaan mental.</td>
+                    <td><button onclick="playFrequency(18, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>20 Hz</td>
+                    <td>Digunakan untuk meningkatkan energi dan mengurangi kelelahan.</td>
+                    <td><button onclick="playFrequency(20, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Frekuensi Healing -->
+        <h2>Frekuensi Penyembuhan</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Penjelasan</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>174 Hz</td>
+                    <td>Menenangkan rasa sakit fisik dan emosional.</td>
+                    <td><button onclick="playFrequency(174, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>285 Hz</td>
+                    <td>Meningkatkan energi penyembuhan tubuh dan jaringan.</td>
+                    <td><button onclick="playFrequency(285, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>852 Hz</td>
+                    <td>Memunculkan intuisi dan kebijaksanaan spiritual.</td>
+                    <td><button onclick="playFrequency(852, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tambahan Lain -->
+        <h2>Gelombang Lainnya</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Frekuensi (Hz)</th>
+                    <th>Kategori</th>
+                    <th>Kontrol Suara</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1000 Hz</td>
+                    <td>Otak Kosmik</td>
+                    <td><button onclick="playFrequency(1000, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>120 Hz</td>
+                    <td>Suara Alam</td>
+                    <td><button onclick="playFrequency(120, 5)">Mainkan</button></td>
+                </tr>
+                <tr>
+                    <td>60 Hz</td>
+                    <td>Mantra Relaksasi</td>
+                    <td><button onclick="playFrequency(60, 5)">Mainkan</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function playFrequency(frequency, duration) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';  // Tipe gelombang suara
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // Set frekuensi suara
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + duration); // Berhenti setelah durasi
+        }
+    </script>
+</body>
+</html>

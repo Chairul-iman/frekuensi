@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frekuensi Gelombang Otak</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #17ceee, #010c0c);
+            color: #fff;
+            min-height: 100vh; /* Memastikan body setidaknya setinggi viewport */
+            display: flex;
+            flex-direction: column; /* Membuat konten terpusat secara vertikal */
+            justify-content: center; /* Memusatkan konten secara vertikal */
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .frequency-list {
+            list-style: none;
+            padding: 0;
+        }
+        .frequency-item {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        .frequency-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .play-button {
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .play-button:hover {
+            background: #ffaa00;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #10ffe3;
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .back-button:hover {
+            background: #e5ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="category-title">Frekuensi</h1>
+        <ul class="frequency-list" id="frequency-list"></ul>
+        <a href="frekuensimenu.html" class="back-button">Kembali</a>
+    </div>
+
+    <script>
+        const frequencies = {
+            alpha: [
+                { freq: 8, desc: "Gelombang yang terjadi saat kondisi rileks, meditasi, dan dalam keadaan santai." },
+                { freq: 9, desc: "Dikenal meningkatkan perasaan tenang dan fokus dalam aktivitas santai." },
+                { freq: 10, desc: "Frekuensi utama dalam gelombang Alpha yang digunakan dalam terapi relaksasi." },
+                { freq: 11, desc: "Frekuensi ini membantu mengurangi kecemasan dan mendukung ketenangan pikiran." },
+                { freq: 12, desc: "Gelombang yang membantu dalam keadaan relaksasi lebih dalam dan fokus mental." },
+                { freq: 13, desc: "Mendukung kreativitas dan pemikiran yang lebih terbuka." },
+                { freq: 14, desc: "Membantu meningkatkan kemampuan belajar dan memori." }
+            ],
+            beta: [
+                { freq: 15, desc: "Meningkatkan fokus dan konsentrasi pada tugas mental yang menantang." },
+                { freq: 20, desc: "Gelombang yang berhubungan dengan aktivitas mental yang lebih intens." },
+                { freq: 25, desc: "Terhubung dengan pemikiran rasional dan kesad angan mental tinggi." },
+                { freq: 30, desc: "Gelombang untuk memicu kewaspadaan dan meningkatkan kemampuan pemecahan masalah." },
+                { freq: 35, desc: "Meningkatkan energi dan motivasi untuk menyelesaikan tugas." },
+                { freq: 40, desc: "Mendukung kemampuan analitis dan berpikir kritis." }
+            ],
+            theta: [
+                { freq: 4, desc: "Frekuensi yang terjadi selama tahap tidur ringan atau relaksasi mendalam." },
+                { freq: 5, desc: "Frekuensi ini membantu relaksasi mental dan mendalamkan meditasi." },
+                { freq: 6, desc: "Sering terhubung dengan kesadaran yang lebih dalam dan relaksasi mental yang dalam." },
+                { freq: 7, desc: "Gelombang ini terhubung dengan pemulihan emosional dan meditatif yang mendalam." },
+                { freq: 8, desc: "Gelombang yang berhubungan dengan keseimbangan emosional dan spiritual." },
+                { freq: 9, desc: "Mendukung kreativitas dan intuisi." }
+            ],
+            delta: [
+                { freq: 0.5, desc: "Terjadi saat tidur sangat dalam dan tidur lelap." },
+                { freq: 1, desc: "Gelombang tidur dalam yang sangat lambat, memberikan pemulihan tubuh maksimal." },
+                { freq: 2, desc: "Gelombang tidur yang mendalam dan berhubungan dengan regenerasi tubuh." },
+                { freq: 3, desc: "Gelombang tidur dengan pemulihan fisik dan mental yang sangat kuat." },
+                { freq: 4, desc: "Frekuensi dalam tidur yang berhubungan dengan pemulihan mental dan tubuh." },
+                { freq: 5, desc: "Mendukung proses penyembuhan dan regenerasi." }
+            ],
+            gamma: [
+                { freq: 30, desc: "Gelombang yang terkait dengan konsentrasi dan pemrosesan informasi." },
+                { freq: 40, desc: "Frekuensi untuk meningkatkan kemampuan fokus dan pemrosesan informasi." },
+                { freq: 50, desc: "Gelombang yang berhubungan dengan kecerdasan, berpikir cepat, dan kreativitas." },
+                { freq: 60, desc: "Dikenal meningkatkan kewaspadaan mental dan fokus yang tajam." },
+                { freq: 70, desc: "Frekuensi tinggi yang terkait dengan aktivitas mental intens." },
+                { freq: 80, desc: "Terhubung dengan pemrosesan informasi tingkat tinggi dan kreativitas." },
+                { freq: 90, desc: "Frekuensi yang membantu meningkatkan kapasitas mental dan daya ingat." },
+                { freq: 100, desc: "Gelombang tinggi yang digunakan dalam terapi stimulasi mental dan memori." }
+            ],
+            chakra: [
+                { freq: 174, desc: "Menenangkan rasa sakit fisik dan emosional." },
+                { freq: 285, desc: "Meningkatkan energi penyembuhan tubuh dan jaringan." },
+                { freq: 396, desc: "Membersihkan rasa takut dan energi negatif." },
+                { freq: 417, desc: "Frekuensi perubahan dan pemulihan emosi." },
+                { freq: 528, desc: "Dikenal sebagai frekuensi cinta, harmoni, dan penyembuhan DNA." },
+                { freq: 639, desc: "Meningkatkan hubungan harmonis dan pemahaman." },
+                { freq: 741, desc: "Meningkatkan kesadaran dan kemampuan mengekspresikan diri." },
+                { freq: 852, desc: "Memunculkan intuisi dan kebijaksanaan spiritual." },
+                { freq: 963, desc: "Frekuensi untuk kesadaran tertinggi dan koneksi spiritual." }
+            ],
+            sleep: [
+                { freq: 0.5, desc: "Meningkatkan tidur nyenyak dan penyembuhan tubuh." },
+                { freq: 1, desc: "Mempercepat relaksasi dan regenerasi tubuh saat tidur." },
+                { freq: 3, desc: "Gelombang delta untuk tidur lelap yang berkualitas." },
+                { freq: 4, desc: "Mendukung proses tidur yang lebih dalam." }
+            ],
+            healing: [
+                { freq: 111, desc: "Memperkuat konsentrasi dan mediasi mendalam." },
+                { freq: 222, desc: "Harmoni untuk keseimbangan emosional." },
+                { freq: 333, desc: "Penyembuhan spiritual dan fisik tubuh." },
+                { freq: 444, desc: "Energi penyembuhan universal." },
+                { freq: 555, desc: "Mendukung penyembuhan emosional dan mental." },
+                { freq: 666, desc: "Meningkatkan koneksi spiritual dan kesadaran." }
+            ],
+            melody: [
+                { freq: 256, desc: "Frekuensi standar musik klasik, dikenal memberikan ketenangan." },
+                { freq: 432, desc: "Frekuensi harmoni alam, memberikan rasa damai dan rileks." },
+                { freq: 528, desc: "Frekuensi cinta universal, membantu menyelaraskan energi tubuh." },
+                { freq: 639, desc: "Mendukung hubungan sosial dan komunikasi yang lebih baik." }
+            ],
+            isochronic: [
+                { freq: 14, desc: "Meningkatkan konsentrasi dan fokus saat belajar." },
+                { freq: 18, desc: "Frekuensi untuk meningkatkan kewaspadaan mental." },
+                { freq: 20, desc: "Digunakan untuk meningkatkan energi dan mengurangi kelelahan." },
+                { freq: 22, desc: "Mendukung relaksasi dan meditasi yang lebih dalam." }
+            ]
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        const categoryTitle = document.getElementById('category-title');
+        const frequencyList = document.getElementById('frequency-list');
+
+        if (frequencies[category]) {
+            categoryTitle.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)} Waves`;
+            frequencies[category].forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.className = 'frequency-item';
+                listItem.innerHTML = `
+                    <span>${item.freq} Hz - ${item.desc}</span>
+                    <button class="play-button" onclick="playFrequency(${item.freq})">Play</button>
+                `;
+                frequencyList.appendChild(listItem);
+            });
+        } else {
+            categoryTitle.textContent = "Kategori tidak ditemukan";
+        }
+
+        function playFrequency(frequency) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 2); // Durasi suara 2 detik
+        }
+    </script>
+</body>
+</html>

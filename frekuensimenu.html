@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Utama</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #07eeff, #3b3b3b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ffffff, #00ffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-link {
+            display: inline-block;
+            width: 100%;
+            max-width: 200px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #00eeff, #ffffff);
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .menu-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.8);
+            background: linear-gradient(135deg, #ffee00, #ffffff);
+        }
+
+        .back-menu {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+
+        /* Efek Responsif */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .menu-link {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menu Utama</h1>
+        <ul class="menu-list">
+            <li class="menu-item"><a href="frequencies.html?category=alpha" class="menu-link">Alpha Waves</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=beta" class="menu-link">Beta Waves</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=theta" class="menu-link">Theta Waves</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=delta" class="menu-link">Delta Waves</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=gamma" class="menu-link">Gamma Waves</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=chakra" class="menu-link">Frekuensi Chakra</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=sleep" class="menu-link">Frekuensi Tidur Nyenyak</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=healing" class="menu-link">Healing</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=melody" class="menu-link">Melodi</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=isochronic" class="menu-link">Isochronic</a></li>
+            <li class="menu-item"><a href="frequencies.html?category=healing-frequency" class="menu-link">Frekuensi Healing</a></li>
+            <li class="menu-item"><a href="index.html" class="menu-link">Halaman Saya</a></li>
+        </ul>
+        <br>
+        <ul class="back-menu">
+            <li class="menu-item"><a href="aplikasifre.html" class="menu-link">Kembali</a></li>
+        </ul>
+    </div>
+</body>
+</html>

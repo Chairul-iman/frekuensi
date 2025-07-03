@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frekuensi Gelombang Otak</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #17ceee, #010c0c);
+            color: #fff;
+        }
+        .welcome {
+            text-align: center;
+        }
+        .logo {
+            width: 250px; /* Sesuaikan ukuran logo */
+            height: auto;
+            margin-bottom: 1px; /* Jarak antara logo dan teks */
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .start-button, .exit-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background: #ffcc00;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+        .start-button:hover, .exit-button:hover {
+            background: #00fff2;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <img src="logo.png" alt="Logo Frequwave" class="logo">
+        <h1>Frequwave</h1>
+        <p>Aplikasi Frekuensi Gelombang Otak
+            <br><br>
+            - Chairul Iman -
+        </p>
+        
+        <button class="start-button" onclick="startApp()">Masuk</button>
+        <button class="exit-button" onclick="exitApp()">Keluar</button>
+    </div>
+
+    <script>
+        function startApp() {
+            window.location.href = "frekuensimenu.html";
+        }
+
+        function exitApp() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
